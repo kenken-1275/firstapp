@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--th:eachで繰り返し処理ができる。post:がブロック変数と同じ役割を持つ。${postList}がコントローラーから渡される値。-->
+<ul th:each="post:${postList}">
+<!--    1つ1つ取り出されたpostに対して、PostEntityクラスに定義されているgetMemo()というゲッターメソッドを実行している。-->
+    <li th:text="${post.getMemo()}">
+    </li>
+</ul>
+</body>
+</html>
