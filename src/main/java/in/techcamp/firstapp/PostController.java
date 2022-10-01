@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.List;
 
@@ -27,5 +28,12 @@ public class PostController {
 //        );
         model.addAttribute("postList",postList);//作成したオブジェクトをmodelに追加している。
         return "index";
+    }
+
+    @GetMapping("/postForm")
+    //@ModelAttribute("呼び出す時の名称") 保存したい変数のデータ型 保存したい変数　　このアノテーションで任意のデータをmodel型のオブジェクト(一時保管場所のような)に格納できる。
+    //下記で、PostForm型の変数formを登録し、後にpostFormという名称で呼び出すことができる。
+    public String showPostForm(@ModelAttribute("postForm") PostForm form){
+        return "postForm";
     }
 }
