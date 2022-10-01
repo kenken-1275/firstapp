@@ -1,25 +1,11 @@
 package in.techcamp.firstapp;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@AllArgsConstructor
+@AllArgsConstructor //lombokの@AllArgsConstructorはコンストラクタを自動で生成してくれるアノテーション。
+@Data //lombokの@Dataは、ゲッターとセッターを自動で設定してくれるアノテーション。
 public class PostEntity {//idとmemoカラムに対応するようエンティティを作成する。
     private long id;
     private String memo;
-
-    public long getId() {//ゲッターとセッターの設定。これもcommand+nから作成できる。
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getMemo() {
-        return memo;
-    }
-
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
 }
