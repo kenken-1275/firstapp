@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>新規投稿</title>
+</head>
+<body>
+<h1>新規投稿ページ</h1>
+<!--th:actionで次にアクセスするURLを指定,@{}で囲う。 th:methodでHTTPメソッドを指定。 th:objectでフォームの投稿内容を紐付けるFormクラスを指定,${}で囲う。-->
+<form action="#" th:action="@{/posts}" th:method="post" th:object="${postForm}">
+<!--  th:fieldで入力されたデータをpostFormオブジェクトの変数memoに代入するよう紐付けている。*{}で囲う-->
+  <input type="text" id="summaryInput" th:field="*{memo}">
+  <button type="submit">作成</button>
+</form>
+</body>
+</html>
