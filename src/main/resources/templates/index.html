@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<a th:href="@{/postForm}">新規投稿画面</a>
 <!--th:eachで繰り返し処理ができる。post:がブロック変数と同じ役割を持つ。${postList}がコントローラーから渡される値。-->
 <ul th:each="post:${postList}">
 <!--    1つ1つ取り出されたpostに対して、PostEntityクラスに定義されているgetMemo()というゲッターメソッドを実行している。-->
