@@ -9,7 +9,7 @@ import java.util.List;
 @Controller //アノテーション Springにそのクラスがコントローラーであることを伝えるためのもの。
 public class PostController {
     @GetMapping("/hello") //アノテーション　railsのルーティング的な役割。ルートパス/helloというパスに行ったら下記メソッドを実行する。GetはHTTPメソッドのこと、そのためPostMappingもある。
-    public String showHello(Model model) { //Model型のオブジェクトを用意して、データを追加してビューに渡す。
+    public String showHello(Model model) { //Model型のオブジェクトを用意して、データを追加してビューに渡す。ビューに渡すためにModel型を定義している。
         var sampleText = "サンプルテキスト"; //変数を定義
         model.addAttribute("sampleText", sampleText); //addAttributeでmodelに要素を追加している。1つ目の引数がビューで読み込む際の名称、2つ目の引数が直前の変数を表している。
         return "hello"; //この記述でresourcesフォルダのtemplatesフォルダに作成したhello.htmlを読み込める。
