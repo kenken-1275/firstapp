@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -35,5 +36,12 @@ public class PostController {
     //下記で、PostForm型の変数formを登録し、後にpostFormという名称で呼び出すことができる。
     public String showPostForm(@ModelAttribute("postForm") PostForm form){
         return "postForm";
+    }
+
+    @PostMapping("/posts") //フォーム投稿後のURLアクセス時に実行。HTTPメソッドのPOSTに対応するMappingアノテーション。
+    public String savePost(PostForm form){
+        postRepository.insert(form.getMemo()); //SQLへのデータ保存の記述。form.getMemo()はformオブジェクトから変数memoの値を取り出すためのコード。
+        //取り出した変数の中身を、リポジトリで登録したinsertメソッドによって保存している。
+        return "redirect:/"; //ルートパスにリダイレクト
     }
 }
